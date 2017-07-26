@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html manifest="{{ url_for('static',filename='appcache.manifest')}}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Chimirri Tran</title>
+    <link href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
+    <link rel="manifest" href="{{ url_for('static',filename='/manifest.json')}}">
+    <style>
+        div#header {
+            background: rebeccapurple;
+            width: 100%;
+            height: 30px;
+            box-shadow: 0 4px 5px #ccc;
+        }
+        div#footer {
+            background: rebeccapurple;
+            height: 30px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            box-shadow: 0 -4px 5px #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        var motivation = "{{motivation}}"
+        console.log("motivation"+ JSON.parse(motivation["motivationalPhrase"]))
+    </script>
+
+</head>
+<body>
+    <div id="header"  style="color:#fff"><a href="/login" style="color:#fff">Login</a> | <a href="registration" style="color:#fff">Registration</a></div>
+    <div id="footer"></div>
+    <div style="width:1020px;position:relative;margin:0 auto;">
+        
+        <div id="todaySituation" class="container" style="width: 100%;;background:#eee;border:1px solid #ddd;padding:20px">
+        <form method="post" action="fromregistration">
+            <div style="width:100%;"> Registration</div>
+            <span style="color:red;">{{error}}</span>
+
+            <div class="form-group">
+                <input class="form-control inline" name="username"></input><label>username</label>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control inline" name="password"></input><label>password</label>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control inline" name="height"></input><label>height</label>
+            </div>
+
+            Today I...
+
+            <div class="form-group">
+                <input class="form-control inline" name="steps"></input><label>number of Steps</label>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="heartrate"></input><label>hearth rate</label>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="weight"></input><label>weight</label>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="sleephours"></input><label>sleeped hours</label>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="minbloodpressure"></input><label>min blood pressure</label>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="maxbloodpressure"></input><label>max blood pressure</label>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Send">
+        </form> </div>
+
+                  
+    </div>
+
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ url_for('static',filename='bootstrap/jquery.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    
+   
+
+
+</body>
+</html>

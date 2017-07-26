@@ -1,0 +1,53 @@
+html, body, #map {
+    height: 100%;
+    width: 100%;
+}
+
+.gmnoprint {
+    width: auto !important;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+.alert{
+    position: absolute;
+    left: 45%;
+    z-index: 30;
+    top: 45%;
+    border: 2px solid;
+    font-size: 20px;
+    display: none;
+}
+ul#waypointsList {
+    margin: 10px auto;
+}
+li.list-group-item{
+    margin:2px auto;
+}
+.list-group {line-height:30px}
+
+input.form-control {
+    width: 30%;
+    float: left;
+    margin-right: 20px;
+}
+div#header {
+    background: rebeccapurple;
+    width: 100%;
+    height: 30px;
+}
+div#footer {
+    background: rebeccapurple;
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}

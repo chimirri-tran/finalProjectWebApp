@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html manifest="{{ url_for('static',filename='appcache.manifest')}}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Chimirri Tran</title>
+    <link href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
+    <link rel="manifest" href="{{ url_for('static',filename='/manifest.json')}}">
+    <style>
+        div#header {
+            background: rebeccapurple;
+            width: 100%;
+            height: 30px;
+            box-shadow: 0 4px 5px #ccc;
+        }
+        div#footer {
+            background: rebeccapurple;
+            height: 30px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            box-shadow: 0 -4px 5px #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+    function change() {
+        document.getElementById("exercize").innerHTML= "{{exercize}}"
+        //serializeToString(new DOMParser().parseFromString("{{exercize}}", "text/html"))
+    }
+    </script>
+
+</head>
+<body onload="change()">
+    <div id="header"  style="color:#fff"><a href="/login" style="color:#fff">Login</a> | <a href="registration" style="color:#fff">Registration</a></div>
+    <div style="width:1020px;position:relative;margin:0 auto;">
+
+        <div style="width:100%; height: 100px;">
+            <form method="post" action="newMot">
+                <h3 id="motivationalPhrase" style="float:left">{{ motivation }}</h3>
+                <input type="submit" class="btn btn-primary btn-block" id="new"
+                style="float:left; width:30%;margin-top: 16px;margin-left: 16px;" value="New motivational Phrase">
+            </form>
+        </div>
+        
+        <div id="todaySituation" class="container" style="width: 100%;;background:#eee;border:1px solid #ddd;padding:20px">
+        <form method="post" action="daily">
+            <div style="width:100%;"> What is the siuation now?</div>
+            <span style="color:red;">{{error}}</span>
+
+            <div class="form-group">
+                <input class="form-control inline" name="steps"></input><label>number of Steps</label>
+                <div>{{ feedBackSteps }}</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="heartrate"></input><label>hearth rate</label>
+                <div>{{ feedBackHeartrate }}</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="weight"></input><label>weight</label>
+                <div>{{ feedBackWeight }}</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="sleephours"></input><label>sleeped hours</label>
+                <div>{{ feedBackSleephours }}</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="minbloodpressure"></input><label>min blood pressure</label>
+                <div>{{ feedBackMinbloodpressure }}</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="maxbloodpressure"></input><label>max blood pressure</label>
+                <div>{{ feedBackMaxbloodpressure }}</div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Send">
+        </form> </div>
+
+        <div id="calories" class="container" style="width: 100%;margin-top:30px;background:#eee;border:1px solid #ddd;padding:20px">
+            <form method="post" action="calories">
+                <div style="width:100%;"> How many calories does food have?</div>
+
+                <div class="form-group inline">
+                    <input class="form-control" name="food"></input><label>Food</label>
+                </div><div style="float: right;margin-right: 5%;font-size: 40px;">{{ calories }}</div>
+                <input type="submit" class="btn btn-primary inline" value="Calculate">
+            </form>
+            <div id="exercize"></div>
+        </div>
+
+                  
+    </div>
+
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ url_for('static',filename='bootstrap/jquery.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    
+    
+  
+
+</body>
+</html>
